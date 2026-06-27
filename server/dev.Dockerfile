@@ -18,6 +18,9 @@ COPY README.md .
 COPY mem0 ./mem0
 RUN pip install -e .[graph] -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com --extra-index-url http://mirrors.aliyun.com/pypi/simple/
 
+COPY downloads/en_core_web_sm-3.8.0-py3-none-any.whl .
+RUN pip install en_core_web_sm-3.8.0-py3-none-any.whl
+
 # Return to app directory and copy server code
 WORKDIR /app
 COPY server .
